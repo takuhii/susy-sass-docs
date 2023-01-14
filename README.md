@@ -1,8 +1,6 @@
 Power Tools For The Web
 =======================
 
-[![Build Status](https://travis-ci.org/takuhii/susy-sass.png?branch=main)](https://travis-ci.org/takuhii/susy-sass)
-
 Susy-SASS is an agnostic set of tools
 for creating powerful, custom layouts.
 We provide the language,
@@ -20,6 +18,5 @@ Your markup, your layout | *our math*
 Resources
 ---------
 
-- [Website](http://susy.oddbird.net/)
-- [Documentation](http://susydocs.oddbird.net/)
-- [Sites using Susy](http://susy.oddbird.net/sites-using-susy/)
+- [Website](http://takuhii.github.io/susy-sass/)
+- [Documentation](#)
