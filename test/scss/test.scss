@@ -1,0 +1,22 @@
+/* Susy Tests */
+/* ========== */
+
+@import "../../sass/susy";
+@import "../../node_modules/sass-true/sass/true";
+@import "test/helpers";
+@import "test/layout";
+
+@import "tests";
+
+.results{
+  @if _true-get-result(global) == pass {
+    background: rgba(green, .25);
+    border-color: green;
+  }
+
+  &:after {
+    content: _true-report-message(global);
+  }
+}
+
+@include report;
