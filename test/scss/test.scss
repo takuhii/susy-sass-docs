@@ -6,9 +6,6 @@
 @import "test/helpers";
 @import "test/layout";
 
-// test that susyone settings don't cause errors in susy
-@import "../../sass/susy/language/susyone/settings";
-
 @import "tests";
 
 .results{

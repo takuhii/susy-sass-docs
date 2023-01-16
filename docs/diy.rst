@@ -1,4 +1,4 @@
-DIY Susy
+DIY Susy-Sass
 ========
 
 Susy is built in three distinct modules:
@@ -13,8 +13,7 @@ applying different CSS to the same markup,
 you can theme Susy by writing your own syntax
 (or extending one of ours).
 
-We've written a powerful new :doc:`Default Syntax <settings>`,
-and we're keeping the old :doc:`susyone` available as well.
+We've written a powerful new :doc:`Default Syntax <settings>`.
 But why stop there?
 You can *create your own unique syntax*,
 or port over the language of existing tools like

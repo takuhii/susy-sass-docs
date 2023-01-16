@@ -1,53 +1,14 @@
 Upgrade Path
 ============
 
-Susy ``2.x`` supports two syntax options, side by side.
-If you want to use the latest release
-but keep the old syntax,
-change your import from ``susy`` to ``susyone``.
-
-.. code-block:: scss
-
-  // With Susy 2.x installed...
-  @import "susyone";
-
-If you ever want to upgrade to the new syntax,
-change the import back to ``susy``,
-and follow these instructions:
-
-
--------------------------------------------------------------------------
-
 Settings
 --------
-
-In SusyOne, settings were handled as variables.
-
-.. code-block:: scss
-
-  // the basics
-  $columns: 12;
-  $column-width: 4em;
-  $gutter-width: 1em;
-  $grid-padding: 1em;
-
-  // advanced
-  $container-width: false;
-  $container-style: magic;
-  $from-direction: left;
-  $omega-float: right;
-
-  // media-query fallbacks
-  $breakpoint-media-output: true;
-  $breakpoint-ie-output: true;
-  $breakpoint-raw-output: false;
-
 
 Removed Settings
 ~~~~~~~~~~~~~~~~
 
 All the media-query fallback settings have been dropped.
-Susy 2 no longer manages media-queries,
+Susy-sass no longer manages media-queries,
 but we play well with other media-query libraries,
 and include special
 :ref:`Breakpoint integration <tools-susy-breakpoint>`.
@@ -105,7 +66,7 @@ Functions
 Columns / Space
 ~~~~~~~~~~~~~~~
 
-The ``columns`` and ``space`` functions from SusyOne
+The ``columns`` and ``space`` functions
 have now been merged into the new
 :ref:`span function <tools-span-function>`.
 

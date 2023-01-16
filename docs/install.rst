@@ -7,8 +7,6 @@ and we recommend pairing with tools like
 `Breakpoint`_
 and `Vertical Rhythms`_.
 
-Compass is still required for the :doc:`susyone` syntax.
-
 .. _Sass: http://sass-lang.com/
 .. _Compass: http://compass-style.org/
 .. _Breakpoint: http://breakpoint-sass.com/
@@ -183,14 +181,6 @@ create a ``bower_components`` directory for you.
 
   // Import Susy
   @import "bower_components/susy/sass/susy";
-
-You can also import Susyone.
-
-.. code-block:: scss
-
-  // Import Susy
-  @import "bower_components/susy/sass/susyone";
-
 
 Compass
 -------

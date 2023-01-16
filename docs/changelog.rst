@@ -1,6 +1,14 @@
 Changelog
 =========
 
+2.2.24 - Jan 16 2023
+--------------------
+
+- Updated to use `SASS` not `NODE-SASS`
+- Doc updates & typo fixes.
+- General housekeeping
+- Removed SusyOne
+
 2.2.13 - Apr 10 2018
 --------------------
 

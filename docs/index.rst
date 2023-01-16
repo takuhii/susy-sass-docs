@@ -1,4 +1,4 @@
-Susy |release|
+Susy-Sass |release|
 ==============
 
 In a world of agile development and
@@ -13,10 +13,7 @@ Your markup, your design, your opinions | *our math*.
 
 .. note::
 
-  These docs are focused on Susy |release|.
-  See the :doc:`susyone` documentation
-  for help with earlier versions of Susy.
-
+  These docs are focused on Susy-Sass |release|.
 
 Contents
 --------
@@ -28,7 +25,6 @@ Contents
    settings
    shorthand
    toolkit
-   susyone
    upgrade
    diy
    changelog
@@ -40,7 +36,6 @@ ToDo
 These are the features we're working on next:
 
 - Add IE support to new syntax.
-- Move SusyOne syntax onto new math/output modules.
 - Add padding/margin options to the ``span`` mixin, for simpler output.
 
 We're always happy to hear your ideas as well.
