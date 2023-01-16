@@ -1,12 +1,12 @@
 {
-  "name": "susy",
-  "version": "2.2.14",
+  "name": "susy-sass-docs",
+  "version": "2.2.24",
   "description": "Sass power-tools for web layout.",
-  "author": "Miriam Eric Suzanne <miriam@oddbird.net>",
+  "author": "Darren Mackintosh <takuhii@gmail.com>",
   "main": "sass/_susy.scss",
   "repository": {
-    "type": "git",
-    "url": "git://github.com/oddbird/susy.git"
+    "type": "https",
+    "url": "https://github.com/takuhii/susy-sass-docs.git"
   },
   "keywords": [
     "layout",
@@ -26,9 +26,9 @@
   },
   "license": "BSD-3-Clause",
   "bugs": {
-    "url": "https://github.com/oddbird/susy/issues"
+    "url": "https://github.com/takuhii/susy-sass-docs/issues"
   },
   "devDependencies": {
-    "sass-true": "2.0.3"
+    "sass-true": "5.0.0"
   }
 }
