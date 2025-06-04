@@ -1,6 +1,6 @@
 {
   "name": "susy-sass-docs",
-  "version": "2.2.24",
+  "version": "2.3.0",
   "description": "Sass power-tools for web layout.",
   "author": "Darren Mackintosh <takuhii@gmail.com>",
   "main": "sass/_susy.scss",

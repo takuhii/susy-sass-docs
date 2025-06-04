@@ -1,6 +1,15 @@
 Changelog
 =========
 
+2.3.0 - Jun 4 2025
+--------------------
+
+- Updated to use `SASS` not `NODE-SASS`
+- Doc updates & typo fixes.
+- General housekeeping
+- Fixed deprecation warnings
+- Introduced susy-modern
+
 2.2.24 - Jan 16 2023
 --------------------
 
