@@ -19,4 +19,4 @@ Resources
 ---------
 
 - [Website](http://takuhii.github.io/susy-sass/)
-- [Documentation](#)
+- [Documentation](https://susy-sass-docs.readthedocs.io/en/latest/)

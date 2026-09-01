@@ -1,6 +1,24 @@
 Changelog
 =========
 
+2.4.0 - Sep 1 2026
+--------------------
+
+- Modernised the toolchain to run on `Dart Sass`_ (Node.js 20.19+).
+- Dual syntax support: use either the legacy ``@import "susy"`` entry point or
+  the modern ``@use "susy-modern"`` namespaced entry point.
+- Replaced the Ruby-based tests with a `sass-true`_ value-assertion suite that
+  verifies the grid math and function output, plus compile checks for both
+  syntaxes. Run with ``npm test``.
+- Added a GitHub Actions CI workflow (Node 20 / 22 / 24) and removed the
+  legacy Travis config.
+- Slimmed the published npm package to just the ``sass`` library, README, and
+  LICENSE.
+- Removed leftover Ruby/Compass migration files.
+
+.. _Dart Sass: https://sass-lang.com/dart-sass/
+.. _sass-true: https://github.com/oddbird/true
+
 2.3.0 - Jun 4 2025
 --------------------
 

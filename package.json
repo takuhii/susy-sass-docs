@@ -1,12 +1,12 @@
 {
   "name": "susy-sass-docs",
-  "version": "2.3.0",
+  "version": "2.4.0",
   "description": "Sass power-tools for web layout.",
   "author": "Darren Mackintosh <takuhii@gmail.com>",
   "main": "sass/_susy.scss",
   "repository": {
-    "type": "https",
-    "url": "https://github.com/takuhii/susy-sass-docs.git"
+    "type": "git",
+    "url": "git+https://github.com/takuhii/susy-sass-docs.git"
   },
   "keywords": [
     "layout",
@@ -22,7 +22,7 @@
     "needs": "*"
   },
   "scripts": {
-    "test": "rake test"
+    "docs": "sphinx-build -b html docs docs/_build/html"
   },
   "license": "BSD-3-Clause",
   "bugs": {

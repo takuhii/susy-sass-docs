@@ -1,301 +1,204 @@
 Getting Started
 ===============
 
-The only requirement is `Sass`_,
-but Susy was built to be part of the `Compass`_ ecosystem,
-and we recommend pairing with tools like
-`Breakpoint`_
-and `Vertical Rhythms`_.
+Susy-sass runs on `Dart Sass`_, the current, actively-maintained Sass
+implementation. The old `Node-sass`_/`Compass`_ Ruby toolchain is no longer
+required (or supported).
 
-.. _Sass: http://sass-lang.com/
+You need two things:
+
+- `Dart Sass`_ (the ``sass`` package), and
+- Susy-sass itself.
+
+.. _Dart Sass: https://sass-lang.com/dart-sass/
+.. _Node-sass: https://sass-lang.com/blog/libsass-is-deprecated/
 .. _Compass: http://compass-style.org/
-.. _Breakpoint: http://breakpoint-sass.com/
-.. _Vertical Rhythms: http://compass-style.org/reference/compass/typography/vertical_rhythm/
 
 
-Simple Install
---------------
-
-.. code-block:: bash
-
-  # command line
-  gem install susy
-
-
-Bundler or Rails
+Install with npm
 ----------------
 
-.. warning:: In order to use Susy 2 with Rails you must update your Gemfile to use sass-rails ~> 5.0.0. This is because Susy 2 requires Sass >= 3.3 whilst Rails 4.1 and below include a version of sass-rails which does not support Sass 3.3.
-
-.. code-block:: ruby
-
-  # Gemfile
-  # gem 'sass-rails', '~> 4.0.3'
-  gem 'sass-rails', '~> 5.0.0'
-  gem 'susy'
-
-  # If you want Compass:
-  gem 'compass-rails', '~> 2.0.0'
-
-.. code-block:: ruby
-
-  # config/application.rb
-  require 'susy'
+Install Susy-sass and Sass as dev dependencies:
 
 .. code-block:: bash
 
   # command line
-  bundle install
+  npm install susy-sass --save-dev
+  npm install sass --save-dev
 
-.. _Bundler: http://bundler.io/
-.. _Rails: http://rubyonrails.org/
+.. note::
 
-If you add Susy to an existing Rails app, follow the steps above, but use bundle update instead of bundle install.
-
-.. code-block:: bash
-
-  # command line
-  bundle update
+  The current ``sass`` release requires Node.js 20.19 or newer. Susy-sass
+  declares this through its ``engines`` field, so older Node versions will be
+  flagged on install.
 
 
-Webpack and npm
----------------
-
-Install using npm:
-
-.. code-block:: bash
-
-    npm install susy sass-loader --save-dev
-
-
-Make sure you have `sass-loader <https://github.com/jtangelder/sass-loader>`_ enabled in your `webpack` configuration:
-
-.. code-block:: js
-
-    // webpack.config.js
-    loaders: [
-      {
-        test: /\.scss$/,
-        loader: 'style!css!sass'
-      }
-    ]
-
-
-Start using Susy:
-
-.. code-block:: sass
-
-    /* app.scss */
-    @import "~susy/sass/susy";
-
-
-Gulp
-----
-
-Install susy with npm:
-
-.. code-block:: bash
-
-    npm install susy --save-dev
-
-
-Add Gulp Task:
-
-.. code-block:: js
-
-    // gulpfile.js
-    gulp.task('sass', function() {
-      return gulp.src('scss/*.scss')
-          .pipe(sass({
-              outputStyle: 'compressed',
-              includePaths: ['node_modules/susy/sass']
-          }).on('error', sass.logError))
-          .pipe(gulp.dest('dist/css'));
-    });
-
-Start using Susy:
-
-.. code-block:: sass
-
-    /* app.scss */
-    @import "susy";
-
-Grunt (and Yeoman)
-------------------
-
-You can enable Susy in Grunt by adding a line to your ``Gruntfile.js``.
-You will need to add a line to either your Sass task or, if you're using Compass, your Compass task.
-
-To add Susy to the Sass task, edit your Gruntfile.js at the root level of your project
-and look for the Sass-related rules. Add ``require: 'susy'`` inside the ``options`` object:
-
-.. code-block:: js
-
-  // Gruntfile.js
-  sass: {
-    dist: {
-      options: {
-        style: 'expanded',
-        require: 'susy'
-      },
-      files: {
-          'css/style.css': 'scss/style.scss'
-      }
-    }
-  }
-
-Assuming you've already installed Susy,
-it will now be added to the project
-and will not clash with Yeomans grunt rules.
-
-To add Susy to the Compass task, edit your Gruntfile.js at the root level of your project
-and look for the Compass-related rules. Add ``require: 'susy'`` inside the ``options`` object:
-
-.. code-block:: js
-
-  // Gruntfile.js
-  compass: {
-      options: {
-        require: 'susy',
-        ...
-      }
-    }
-  }
-
-Again, assuming you've already installed Susy,
-it will now be added to the project.
-
-
-Bower
+Usage
 -----
 
-.. code-block:: bash
+Susy-sass ships two entry points, so you can use either the legacy ``@import``
+syntax or the modern ``@use`` syntax.
 
-  # command line
-  bower install susy --save
+Modern syntax (``@use``)
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This will add the Susy repository to your ``bower_components`` directory or
-create a ``bower_components`` directory for you.
+The recommended approach on Dart Sass. Import the namespaced ``susy-modern``
+entry point:
 
 .. code-block:: scss
 
-  // Import Susy
-  @import "bower_components/susy/sass/susy";
+  @use "susy-modern" as susy;
 
-Compass
--------
+  .container {
+    @include susy.container();
+  }
 
-If you want to use Susy with `Compass`_,
-start by `installing Compass`_.
+  .span {
+    @include susy.span(3 of 12);
+  }
 
-Create a new Compass project:
+Legacy syntax (``@import``)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code-block:: bash
-
-  # command line
-  compass create --using susy <project name>
-
-Alternatively, add Susy to a current project
-
-.. code-block:: bash
-
-  # command line
-  compass install susy
-
-.. _Compass: http://compass-style.org/
-.. _installing Compass: http://compass-style.org/install/
-
-
-Manual Start
-------------
-
-If you want to copy in the Sass files directly,
-and skip any package management,
-you can do that too.
-
-- Download the zip file from GitHub.
-- Copy the contents of the "sass" folder (feel free to remove everything else).
-- Paste the files in your project "sass" folder (whatever you call it).
-
-
-Version Management
-------------------
-
-When you work with bundled gems
-across a number of different projects,
-managing gem versions can become an issue.
-
-If you are in a Ruby environment, check out `RVM`_.
-In a Python environment, we recommend `virtualenv`_
-with these `scripts`_ added to your
-"postactivate" and "predeactivate" files.
-
-Once you have that in place,
-`Bundler`_ can be used in either environment
-to manage the actual installation and updating of the gems.
-
-.. _RVM: https://rvm.io/
-.. _virtualenv: http://www.virtualenv.org/en/latest/index.html
-.. _scripts: https://gist.github.com/1078601
-
-
-Quick Start
------------
-
-Once you have everything installed,
-you can import Susy into your Sass files.
+Still supported, and useful for upgrading existing projects:
 
 .. code-block:: scss
 
   @import "susy";
 
-The basic Susy layout is composed using two simple mixins:
+  .container {
+    @include container();
+  }
+
+  .span {
+    @include span(3 of 12);
+  }
+
+.. warning::
+
+  ``@import`` is deprecated in Dart Sass and will be removed in Dart Sass 3.0.0.
+  It continues to work for now, but new projects should prefer the ``@use``
+  syntax above.
+
+
+Resolving the import path
+-------------------------
+
+How the ``susy`` / ``susy-modern`` names resolve depends on your build tool.
+
+Sass CLI
+~~~~~~~~
+
+Add ``node_modules`` to the load path:
+
+.. code-block:: bash
+
+  # command line
+  sass --load-path=node_modules src/app.scss dist/app.css
+
+Then import by package name:
 
 .. code-block:: scss
 
-  @include container; // establish a layout context
-  @include span(<width>); // lay out your elements
+  @use "susy-modern" as susy;
 
-For example:
+Webpack (sass-loader)
+~~~~~~~~~~~~~~~~~~~~~~
+
+Install ``sass`` and ``sass-loader``:
+
+.. code-block:: bash
+
+  # command line
+  npm install sass sass-loader --save-dev
+
+Make sure ``sass-loader`` is enabled in your ``webpack.config.js``:
+
+.. code-block:: js
+
+  // webpack.config.js
+  module: {
+    rules: [
+      {
+        test: /\.scss$/,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
+      },
+    ],
+  }
+
+Then import (the ``~`` prefix resolves from ``node_modules``):
 
 .. code-block:: scss
 
-  body { @include container(80em); }
-  nav { @include span(25%); }
+  /* app.scss */
+  @use "~susy-sass/sass/susy-modern" as susy;
 
-If you want to lay your elements out on a grid,
-you can use the ``span`` mixin to calculate column widths:
+Gulp
+~~~~
+
+.. code-block:: js
+
+  // gulpfile.js
+  const sass = require('gulp-sass')(require('sass'));
+
+  gulp.task('sass', function () {
+    return gulp
+      .src('scss/*.scss')
+      .pipe(
+        sass({ includePaths: ['node_modules'] }).on('error', sass.logError)
+      )
+      .pipe(gulp.dest('dist/css'));
+  });
+
+
+Manual Start
+------------
+
+If you would rather skip package management, you can copy the Sass files in
+directly:
+
+- Download the source from `GitHub`_.
+- Copy the contents of the ``sass`` folder into your project.
+- Import it with a relative path, e.g. ``@use "susy/susy-modern" as susy;``.
+
+.. _GitHub: https://github.com/takuhii/susy-sass
+
+
+Quick Start
+-----------
+
+Once Susy-sass is imported, the basic layout is composed with two mixins:
 
 .. code-block:: scss
 
-  nav { @include span(3 of 12); }
+  @use "susy-modern" as susy;
 
-But you don't have to do things the Susy way.
-We give you direct access to the math,
-so you can use it any way you like:
+  .page { @include susy.container(80em); }  // establish a layout context
+  .nav  { @include susy.span(3 of 12); }    // lay out your elements
+
+You don't have to do things the Susy way, though. Susy gives you direct access
+to the math, so you can use it however you like:
 
 .. code-block:: scss
+
+  @use "susy-modern" as susy;
 
   main {
     float: left;
-    width: span(4);
-    margin-left: span(2) + gutter();
-    margin-right: gutter();
+    width: susy.span(4);
+    margin-left: susy.span(2) + susy.gutter();
+    margin-right: susy.gutter();
   }
 
-You can also establish :doc:`global settings <settings>`,
-to configure Susy for your specific needs.
-Create a ``$susy`` variable,
-and add your settings as a map.
+You can also establish :doc:`global settings <settings>` by creating a
+``$susy`` map:
 
 .. code-block:: scss
 
   $susy: (
-    columns: 12,  // The number of columns in your grid
-    gutters: 1/4, // The size of a gutter in relation to a single column
+    columns: 12,   // The number of columns in your grid
+    gutters: 0.25, // The size of a gutter relative to a single column
   );
 
-There are many more settings available
-for customizing every aspect of your layout,
-but this is just a quick-start guide.
-Keep going to get the details.
+There are many more settings for customizing every aspect of your layout —
+keep going for the details.
