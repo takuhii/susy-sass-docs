@@ -4,3 +4,8 @@
 .github
 
 node_modules
+
+# Sphinx build output and Python environments
+docs/_build/
+.venv/
+__pycache__/
