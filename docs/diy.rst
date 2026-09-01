@@ -1,5 +1,5 @@
 DIY Susy-Sass
-========
+=============
 
 Susy is built in three distinct modules:
 math, output, and syntax.

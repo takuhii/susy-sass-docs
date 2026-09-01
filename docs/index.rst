@@ -1,5 +1,5 @@
 Susy-Sass |release|
-==============
+===================
 
 In a world of agile development and
 super-tablet-multi-magic-laptop-phones,
